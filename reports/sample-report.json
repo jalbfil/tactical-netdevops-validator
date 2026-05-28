@@ -1,0 +1,36 @@
+{
+  "validator": "tactical-netdevops-validator",
+  "timestamp": "2026-05-28T10:30:00+00:00",
+  "status": "GREEN",
+  "state": "NOMINAL",
+  "target": {
+    "node": "HELI-BRAVO",
+    "loopback": "192.168.3.1"
+  },
+  "active_path": [
+    "BASE",
+    "HELI-ALFA",
+    "HELI-BRAVO"
+  ],
+  "next_hops": [
+    "10.0.1.2"
+  ],
+  "ospf_neighbors": [
+    {
+      "router_id": "2.2.2.2",
+      "node": "HELI-ALFA",
+      "state": "FULL/DR",
+      "address": "10.0.1.2",
+      "interface": "GigabitEthernet0/0/0",
+      "is_full": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "route_to_target",
+      "result": "PASS",
+      "detail": "Route to target exists"
+    }
+  ],
+  "summary": "Network is operating in nominal state using the primary path via HELI-ALFA."
+}

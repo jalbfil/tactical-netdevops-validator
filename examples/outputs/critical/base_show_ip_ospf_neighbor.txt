@@ -1,0 +1,1 @@
+Neighbor ID     Pri   State           Dead Time   Address         Interface

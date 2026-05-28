@@ -1,0 +1,6 @@
+Routing entry for 192.168.3.1/32
+Known via "ospf 1", distance 110, metric 21, type intra area
+  Last update from 10.0.1.2 on GigabitEthernet0/0/0, 00:00:06 ago
+  Routing Descriptor Blocks:
+  * 10.0.1.2, from 3.3.3.3, 00:00:06 ago, via GigabitEthernet0/0/0
+      Route metric is 21, traffic share count is 1

@@ -1,0 +1,13 @@
+devices:
+  - name: BASE
+    host: 192.168.1.1
+    device_type: cisco_ios
+  - name: HELI-ALFA
+    host: 192.168.2.1
+    device_type: cisco_ios
+  - name: HELI-BRAVO
+    host: 192.168.3.1
+    device_type: cisco_ios
+  - name: HELI-CHARLIE
+    host: 192.168.4.1
+    device_type: cisco_ios

@@ -1,0 +1,5 @@
+Type escape sequence to abort.
+Tracing the route to 192.168.3.1
+
+  1   10.0.1.2        0 msec    0 msec    0 msec
+  2   10.0.2.2        0 msec    0 msec    0 msec
