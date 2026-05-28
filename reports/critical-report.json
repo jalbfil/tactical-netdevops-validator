@@ -1,0 +1,36 @@
+{
+  "validator": "tactical-netdevops-validator",
+  "timestamp": "2026-05-28T09:53:08+00:00",
+  "status": "RED",
+  "state": "CRITICAL",
+  "target": {
+    "node": "HELI-BRAVO",
+    "loopback": "192.168.3.1"
+  },
+  "active_path": null,
+  "next_hops": [],
+  "ospf_neighbors": [],
+  "checks": [
+    {
+      "name": "route_to_target",
+      "result": "FAIL",
+      "detail": "No route to target"
+    },
+    {
+      "name": "ospf_neighbor_alfa",
+      "result": "WARN",
+      "detail": "HELI-ALFA OSPF adjacency is not FULL/available"
+    },
+    {
+      "name": "ospf_neighbor_charlie",
+      "result": "WARN",
+      "detail": "HELI-CHARLIE OSPF adjacency is not FULL/available"
+    },
+    {
+      "name": "traceroute_to_target",
+      "result": "WARN",
+      "detail": "Traceroute did not return usable hops"
+    }
+  ],
+  "summary": "Network is critical: no valid route to HELI-BRAVO loopback."
+}

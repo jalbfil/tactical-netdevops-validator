@@ -1,0 +1,56 @@
+{
+  "validator": "tactical-netdevops-validator",
+  "timestamp": "2026-05-28T09:51:20+00:00",
+  "status": "YELLOW",
+  "state": "DEGRADED",
+  "target": {
+    "node": "HELI-BRAVO",
+    "loopback": "192.168.3.1"
+  },
+  "active_path": [
+    "BASE",
+    "HELI-CHARLIE",
+    "HELI-BRAVO"
+  ],
+  "next_hops": [
+    "10.0.4.2"
+  ],
+  "ospf_neighbors": [
+    {
+      "router_id": "4.4.4.4",
+      "node": "HELI-CHARLIE",
+      "state": "FULL/DR",
+      "address": "10.0.4.2",
+      "interface": "GigabitEthernet0/0/1",
+      "is_full": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "route_to_target",
+      "result": "PASS",
+      "detail": "Route to target exists"
+    },
+    {
+      "name": "ospf_neighbor_alfa",
+      "result": "WARN",
+      "detail": "HELI-ALFA OSPF adjacency is not FULL/available"
+    },
+    {
+      "name": "ospf_neighbor_charlie",
+      "result": "PASS",
+      "detail": "HELI-CHARLIE OSPF adjacency is FULL"
+    },
+    {
+      "name": "traceroute_to_target",
+      "result": "PASS",
+      "detail": "Traceroute hops: 10.0.4.2 -> 10.0.3.1"
+    },
+    {
+      "name": "backup_path_in_use",
+      "result": "WARN",
+      "detail": "Backup path is active; primary path is not currently used"
+    }
+  ],
+  "summary": "Network is degraded: backup path via HELI-CHARLIE is in use."
+}

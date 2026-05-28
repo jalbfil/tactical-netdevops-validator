@@ -1,0 +1,61 @@
+{
+  "validator": "tactical-netdevops-validator",
+  "timestamp": "2026-05-28T09:51:25+00:00",
+  "status": "INFO",
+  "state": "ECMP_DETECTED",
+  "target": {
+    "node": "HELI-BRAVO",
+    "loopback": "192.168.3.1"
+  },
+  "active_path": null,
+  "next_hops": [
+    "10.0.4.2",
+    "10.0.1.2"
+  ],
+  "ospf_neighbors": [
+    {
+      "router_id": "2.2.2.2",
+      "node": "HELI-ALFA",
+      "state": "FULL/DR",
+      "address": "10.0.1.2",
+      "interface": "GigabitEthernet0/0/0",
+      "is_full": true
+    },
+    {
+      "router_id": "4.4.4.4",
+      "node": "HELI-CHARLIE",
+      "state": "FULL/DR",
+      "address": "10.0.4.2",
+      "interface": "GigabitEthernet0/0/1",
+      "is_full": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "route_to_target",
+      "result": "PASS",
+      "detail": "Route to target exists"
+    },
+    {
+      "name": "ospf_neighbor_alfa",
+      "result": "PASS",
+      "detail": "HELI-ALFA OSPF adjacency is FULL"
+    },
+    {
+      "name": "ospf_neighbor_charlie",
+      "result": "PASS",
+      "detail": "HELI-CHARLIE OSPF adjacency is FULL"
+    },
+    {
+      "name": "traceroute_to_target",
+      "result": "PASS",
+      "detail": "Traceroute hops: 10.0.4.2 -> 10.0.2.2"
+    },
+    {
+      "name": "ecmp_detected",
+      "result": "INFO",
+      "detail": "Multiple equal-cost paths detected towards HELI-BRAVO"
+    }
+  ],
+  "summary": "ECMP detected: OSPF has installed both primary and backup next-hops."
+}
