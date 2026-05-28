@@ -95,30 +95,54 @@ The validator correctly detected that OSPF installed both the primary and backup
 
 This is not treated as a critical failure, but as an informational state because the network still has valid paths while the result may not be deterministic for a primary/backup demonstration.
 
-## 6. Result
+## 6. Critical scenario
 
-The MVP is functional.
-
-The tool can parse saved Cisco IOS command outputs, evaluate the operational state of the OSPF resilience lab and generate JSON/HTML reports for at least the following states:
-
-- `GREEN / NOMINAL`
-- `YELLOW / DEGRADED`
-- `INFO / ECMP_DETECTED`
-
-The remaining state to validate manually in the same way is:
-
-- `RED / CRITICAL`
-
-## 7. Next step
-
-Run the critical scenario:
+Command executed:
 
 ```bash
 tactical-validator validate --scenario examples/outputs/critical --output reports/critical-report.json --html reports/critical-report.html
 ```
 
-Expected result:
+Observed result:
 
 ```text
-RED / CRITICAL
+RED / CRITICAL: Network is critical: no valid route to HELI-BRAVO loopback.
 ```
+
+Interpretation:
+
+The validator correctly detected that there is no valid route towards the target loopback:
+
+```text
+HELI-BRAVO loopback: 192.168.3.1/32
+```
+
+This represents a critical operational state because the destination node is not reachable through either the primary or backup path.
+
+## 7. Result
+
+The MVP is functional.
+
+The tool can parse saved Cisco IOS command outputs, evaluate the operational state of the OSPF resilience lab and generate JSON/HTML reports for the four target states:
+
+- `GREEN / NOMINAL`
+- `YELLOW / DEGRADED`
+- `RED / CRITICAL`
+- `INFO / ECMP_DETECTED`
+
+## 8. Next step
+
+Add the generated JSON and HTML reports to the repository as sample outputs:
+
+```text
+reports/nominal-report.json
+reports/nominal-report.html
+reports/degraded-report.json
+reports/degraded-report.html
+reports/ecmp-report.json
+reports/ecmp-report.html
+reports/critical-report.json
+reports/critical-report.html
+```
+
+These reports can be referenced from the README and used as visual evidence for the project portfolio.
