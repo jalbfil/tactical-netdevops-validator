@@ -2,6 +2,10 @@
 
 Python-based validator for automated OSPF resilience checks in a tactical IP network lab.
 
+<p align="center">
+  <img src="assets/tactical-netdevops-validator-dashboard.png" alt="Tactical NetDevOps Validator dashboard showing nominal and degraded OSPF validation states" width="100%">
+</p>
+
 This project is the automation-focused continuation of the [`tactical-ospf-resilience-lab`](https://github.com/jalbfil/tactical-ospf-resilience-lab) repository.
 
 The first lab validates OSPF resilience manually. This repository adds a NetDevOps-oriented layer: automated evidence collection, parsing, state evaluation and reporting.
