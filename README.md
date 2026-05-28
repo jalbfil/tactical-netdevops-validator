@@ -105,6 +105,14 @@ pip install -e .
 pytest -q
 ```
 
+Validated locally:
+
+```text
+8 passed
+```
+
+See: [`docs/mvp-local-validation.md`](docs/mvp-local-validation.md)
+
 ---
 
 ## 6. Offline validation examples
@@ -171,7 +179,65 @@ INFO / ECMP_DETECTED
 
 ---
 
-## 7. Live SSH validation
+## 7. Sample reports
+
+The repository includes generated JSON and HTML reports for the four supported operational states.
+
+| State | JSON report | HTML report | Summary |
+|---|---|---|---|
+| `GREEN / NOMINAL` | [`nominal-report.json`](reports/nominal-report.json) | [`nominal-report.html`](reports/nominal-report.html) | Primary path active via `HELI-ALFA` |
+| `YELLOW / DEGRADED` | [`degraded-report.json`](reports/degraded-report.json) | [`degraded-report.html`](reports/degraded-report.html) | Backup path active via `HELI-CHARLIE` |
+| `RED / CRITICAL` | [`critical-report.json`](reports/critical-report.json) | [`critical-report.html`](reports/critical-report.html) | No valid route to `HELI-BRAVO` loopback |
+| `INFO / ECMP_DETECTED` | [`ecmp-report.json`](reports/ecmp-report.json) | [`ecmp-report.html`](reports/ecmp-report.html) | Equal-cost primary and backup paths detected |
+
+### Example report outputs
+
+Nominal state:
+
+```json
+{
+  "status": "GREEN",
+  "state": "NOMINAL",
+  "active_path": ["BASE", "HELI-ALFA", "HELI-BRAVO"],
+  "next_hops": ["10.0.1.2"]
+}
+```
+
+Degraded state:
+
+```json
+{
+  "status": "YELLOW",
+  "state": "DEGRADED",
+  "active_path": ["BASE", "HELI-CHARLIE", "HELI-BRAVO"],
+  "next_hops": ["10.0.4.2"]
+}
+```
+
+Critical state:
+
+```json
+{
+  "status": "RED",
+  "state": "CRITICAL",
+  "active_path": null,
+  "next_hops": []
+}
+```
+
+ECMP state:
+
+```json
+{
+  "status": "INFO",
+  "state": "ECMP_DETECTED",
+  "next_hops": ["10.0.4.2", "10.0.1.2"]
+}
+```
+
+---
+
+## 8. Live SSH validation
 
 Copy the environment example:
 
@@ -206,7 +272,7 @@ tactical-validator validate-live \
 
 ---
 
-## 8. Architecture
+## 9. Architecture
 
 ```text
 CLI
@@ -231,7 +297,7 @@ reporters
 
 ---
 
-## 9. Repository structure
+## 10. Repository structure
 
 ```text
 tactical-netdevops-validator/
@@ -266,7 +332,7 @@ tactical-netdevops-validator/
 
 ---
 
-## 10. Professional value
+## 11. Professional value
 
 This repository demonstrates:
 
